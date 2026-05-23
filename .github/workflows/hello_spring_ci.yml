@@ -22,7 +22,10 @@ jobs:
         run: mvn -B clean verify
 
       - name: Upload Test Reports
-        run: echo ""
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: docker/app1-hello/springboot/hello-spring/target/surefire-reports
 
   docker-build-push:
     runs-on: ubuntu-latest
